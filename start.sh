@@ -2,10 +2,11 @@
 
 ip=1 #начальный ip 
 nas_start=1 #с какого наса начинаем обрабатывать
-nas_stop=4	# по какой нас обрабатывем 
+nas_stop=1	# по какой нас обрабатывем 
 
-while [ $nas_start -ne $nas_stop ]
-	while [ $ip -ne 100 ]
+while [ $nas_start -ne $nas_stop+1 ]
+do
+	while [ $ip -ne 20 ]
 	do
 		if ping 10.99.$nas_start.$ip -c 4 | grep '100% packet loss'
 			then
@@ -72,4 +73,3 @@ while [ $nas_start -ne $nas_stop ]
 ip=1
 nas_start=$[nas_start+1]
 done
-	
