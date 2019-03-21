@@ -28,6 +28,10 @@ do
 					then
 					echo "10.99.$nas_start.$ip SNR-S2990G" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/hardware.log # действие
 				fi
+				if snmpwalk -v2c -c protected 10.99.$nas_start.$ip .1.3.6.1.2.1.1.1.0 | grep 'SNR-S2985G-48T'
+					then
+					echo "10.99.$nas_start.$ip SNR-S2985G-48T" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/hardware.log # действие
+				fi
 				if snmpwalk -v2c -c protected 10.99.$nas_start.$ip .1.3.6.1.2.1.1.1.0 | grep 'SNR-S2985G'
 					then
 					echo "10.99.$nas_start.$ip SNR-S2985G" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/hardware.log # действие
@@ -63,6 +67,10 @@ do
 				if snmpwalk -v2c -c protected 10.99.$nas_start.$ip .1.3.6.1.2.1.1.1.0 | grep 'SNR-S2940-8G'
 					then
 					echo "10.99.$nas_start.$ip SNR-S2940-8G" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/hardware.log # действие
+				fi
+				if snmpwalk -v2c -c protected 10.99.$nas_start.$ip .1.3.6.1.2.1.1.1.0 | grep 'Orion Alpha A26 Device'
+					then
+					echo "10.99.$nas_start.$ip Orion Alpha A26 Device" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/hardware.log # действие
 				fi
 			else
 				echo "10.99.$nas_start.$ip not connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/no_ping.log
