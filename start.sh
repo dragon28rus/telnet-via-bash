@@ -8,10 +8,8 @@ while [ $nas_start -ne $nas_stop ]
 do
 	while [ $ip -ne 255 ]
 	do
-		if ping 10.99.$nas_start.$ip -w 1 -i 0.1 | grep '100% packet loss'
+		if ping -w 1 -i 0.1 10.99.$nas_start.$ip &> /dev/null
 			then
-				echo "10.99.$nas_start.$ip not connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/no_ping.log
-			else
 				echo "10.99.$nas_start.$ip connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/ping.log
 				echo "Опрос свича 10.99.$nas_start.$ip"
 				if snmpwalk -v2c -c protected 10.99.$nas_start.$ip .1.3.6.1.2.1.1.1.0 | grep 'DES-3200'
@@ -66,6 +64,8 @@ do
 					then
 					echo "10.99.$nas_start.$ip SNR-S2940-8G" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/hardware.log # действие
 				fi
+			else
+				echo "10.99.$nas_start.$ip not connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/no_ping.log
 				
 				#/mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet/SNTP/scripts/snmp_01.sh $ip $nas 
 		fi
