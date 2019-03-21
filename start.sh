@@ -10,7 +10,7 @@ do
 	do
 		if ping 10.99.$nas_start.$ip -w 1 -i 0.1 | grep '100% packet loss'
 			then
-				echo "10.99.$nas_start.$ip not connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/ping.log
+				echo "10.99.$nas_start.$ip not connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/no_ping.log
 			else
 				echo "10.99.$nas_start.$ip connected" >> /mnt/c/Users/dragon28rus/YandexDisk/Документы/Проекты/telnet-via-bash/log/ping.log
 				echo "Опрос свича 10.99.$nas_start.$ip"
